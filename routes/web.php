@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 Route::any('/backend/{any?}', 'AdminController@index')->where('any', '.*')->middleware(['auth', 'is_admin']);
+Route::get('/{any?}', 'HomeController@frontend')->where('any', '.*');
