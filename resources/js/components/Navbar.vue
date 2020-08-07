@@ -25,7 +25,7 @@
           class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
           aria-labelledby="userDropdown"
         >
-          <a class="dropdown-item" href="#" target="_blank">
+          <a class="dropdown-item" href="/" target="_blank">
             <i class="fas fa-eye fa-sm fa-fw mr-2 text-gray-400"></i>
             View Site
           </a>
