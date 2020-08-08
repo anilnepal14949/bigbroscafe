@@ -38,6 +38,10 @@ export default {
   position: relative;
   font-family: "Recursive", sans-serif;
   color: #fff;
+  transition: all 0.3s ease 0s;
+}
+.menu_item:hover {
+  background-color: rgba(200, 200, 200, 0.5);
 }
 img {
   max-width: 100%;

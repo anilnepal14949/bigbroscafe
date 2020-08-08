@@ -30,6 +30,55 @@
         body {
             background-color: #24252a;
         }
+
+        .banned {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 100px;
+        }
+
+        .pulse {
+            animation-name: pulse_animation;
+            animation-duration: 5000ms;
+            transform-origin: 70% 70%;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        @keyframes pulse_animation {
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            40% {
+                transform: scale(1.08);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1);
+            }
+
+            70% {
+                transform: scale(1.05);
+            }
+
+            80% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
     @notifyCss
 </head>
@@ -39,6 +88,7 @@
         <main-navbar></main-navbar>
         @yield('content')
         <main-footer></main-footer>
+        <img src="{{ asset('images/banned.png') }}" class="banned pulse" />
     </div>
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
