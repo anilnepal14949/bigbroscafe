@@ -26,6 +26,10 @@ export default router;
 
 Vue.component("admin", require("./components/Admin.vue").default);
 Vue.component("sidebar", require("./components/Sidebar.vue").default);
+Vue.component(
+    "frontend",
+    require("./components/Frontend/Frontend.vue").default
+);
 Vue.component("navbar", require("./components/Navbar.vue").default);
 Vue.component(
     "main-navbar",
@@ -36,12 +40,16 @@ Vue.component(
     require("./components/Frontend/Slider.vue").default
 );
 Vue.component(
-    "special-menu",
-    require("./components/Frontend/SpecialMenu.vue").default
+    "all-menus",
+    require("./components/Frontend/AllMenus.vue").default
 );
 Vue.component(
-    "frontend",
-    require("./components/Frontend/Frontend.vue").default
+    "special-items",
+    require("./components/Frontend/SpecialMenuItems.vue").default
+);
+Vue.component(
+    "main-footer",
+    require("./components/Frontend/Footer.vue").default
 );
 
 const app = new Vue({

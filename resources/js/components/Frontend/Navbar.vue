@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="header">
     <header>
       <a href="/">
         <img :src="asset('logo.png')" />
@@ -38,14 +38,16 @@ button {
   color: #555;
   text-decoration: none;
 }
-
+.header {
+  background: rgba(255, 255, 255, 0.8);
+}
 header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 10px 12%;
   margin-bottom: 10px;
-  background: rgba(255, 255, 255, 0.8);
 }
 
 img {
@@ -91,5 +93,26 @@ button {
 
 button:hover {
   background-color: rgba(0, 136, 169, 0.7);
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+  img,
+  .nav__links {
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  header {
+    width: 100%;
+  }
+  .nav__links li {
+    display: block;
+    border-bottom: 1px solid #000;
+  }
 }
 </style>

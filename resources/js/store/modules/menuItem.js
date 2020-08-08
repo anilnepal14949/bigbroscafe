@@ -20,11 +20,9 @@ const actions = {
         );
         commit("setMenu", response.data.data);
     },
-    async fetchMenuItems({ commit }) {
-        const response = await axios.get(
-            "/api/menu/" + router.currentRoute.params.menuId + "/items"
-        );
-        commit("setMenuItems", response.data);
+    async fetchMenuItems({ commit }, id) {
+        const response = await axios.get("/api/menu/" + id + "/items");
+        commit("setMenuItems", response.data.data);
     },
     async addMenuItem({ commit }, item) {
         await axios

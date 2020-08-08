@@ -68,20 +68,21 @@
 <script>
 import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
+import router from "../../app";
 
 export default {
   data() {
     return {
-      search: ""
+      search: "",
     };
   },
   computed: {
     filterMenuItems() {
-      return this.menuItems.filter(menuItem => {
+      return this.menuItems.filter((menuItem) => {
         return menuItem.item_name.match(this.search);
       });
     },
-    ...mapGetters(["menu", "menuItems"])
+    ...mapGetters(["menu", "menuItems"]),
   },
   methods: {
     ...mapActions(["fetchMenu", "fetchMenuItems", "deleteMenuItem"]),
@@ -99,10 +100,10 @@ export default {
               action: () => {
                 this.remove(id);
               },
-              bold: true
+              bold: true,
             },
-            { text: "No", action: "" }
-          ]
+            { text: "No", action: "" },
+          ],
         }
       );
     },
@@ -111,11 +112,11 @@ export default {
       this.deleteMenuItem(id);
       this.$snotify.remove();
       this.$snotify.success("Menu Item Deleted Successfully!", "Successful");
-    }
+    },
   },
   created() {
     this.fetchMenu();
-    this.fetchMenuItems();
-  }
+    this.fetchMenuItems(router.currentRoute.params.menuId);
+  },
 };
 </script>

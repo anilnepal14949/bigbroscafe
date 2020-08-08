@@ -15,31 +15,31 @@
           </tr>
         </thead>
         <tbody>
-          <tr :class="(this.day_today == 0)?'today':''">
+          <tr :class="(day_today == 0)?'today':''">
             <td>Sunday</td>
             <td>8am to 4pm</td>
           </tr>
-          <tr :class="(this.day_today == 1)?'today':''">
+          <tr :class="(day_today == 1)?'today':''">
             <td>Monday</td>
             <td>8am to 4pm</td>
           </tr>
-          <tr :class="(this.day_today == 2)?'today':''">
+          <tr :class="(day_today == 2)?'today':''">
             <td>Tuesday</td>
             <td>8am to 4pm</td>
           </tr>
-          <tr :class="(this.day_today == 3)?'today':''">
+          <tr :class="(day_today == 3)?'today':''">
             <td>Wednesday</td>
             <td>8am to 4pm</td>
           </tr>
-          <tr :class="(this.day_today == 4)?'today':''">
+          <tr :class="(day_today == 4)?'today':''">
             <td>Thursday</td>
             <td>8am to 4pm</td>
           </tr>
-          <tr :class="(this.day_today == 5)?'today':''">
+          <tr :class="(day_today == 5)?'today':''">
             <td>Friday</td>
             <td>8am to 4pm</td>
           </tr>
-          <tr :class="(this.day_today == 6)?'today':''">
+          <tr :class="(day_today == 6)?'today':''">
             <td>Saturday</td>
             <td>8am to 4pm</td>
           </tr>
@@ -51,22 +51,16 @@
 
 <script>
 export default {
-  data() {
-    return {
-      day_today: "",
-    };
-  },
-  created() {
-    this.day_today = new Date().getDay();
-  },
+  props: ["day_today"],
 };
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 .slider {
   display: flex;
+  flex-wrap: wrap;
   color: #fff;
+  padding-top: 15px;
   justify-content: space-between;
 }
 .showSlide img {
@@ -75,12 +69,13 @@ export default {
 }
 .slidercontainer {
   position: relative;
-  width: 70%;
+  flex-basis: 70%;
 }
 .openingHours {
-  width: 30%;
+  flex-basis: 30%;
   text-align: center;
   padding: 10px;
+  font-family: "Rowdies", cursive;
 }
 .openingHours h2 {
   font-family: "Lobster", cursive;
@@ -92,6 +87,19 @@ table td {
   width: 150px;
 }
 .today {
-  background: rgba(200, 200, 200, 0.3);
+  background: rgba(200, 200, 200, 0.7) !important;
+  color: #333;
+}
+
+@media screen and (max-width: 765px) {
+  .slidercontainer {
+    flex-basis: 100%;
+  }
+  .showSlide img {
+    height: auto;
+  }
+  .openingHours {
+    flex-basis: 100%;
+  }
 }
 </style>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MenuItemResource;
 use App\Menu;
 use App\MenuItem;
 use Illuminate\Http\Request;
@@ -22,9 +23,9 @@ class MenuItemController extends Controller
 
     public function getMenuItems(Menu $menu)
     {
-        $items = MenuItem::where('menu_id', $menu->id)->get();
+        $items = MenuItem::where('menu_id', $menu->id)->orderBy('item_order', 'asc')->get();
 
-        return response()->json($items);
+        return MenuItemResource::collection($items);
     }
 
     /**
